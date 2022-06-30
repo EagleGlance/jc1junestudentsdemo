@@ -15,6 +15,14 @@ public class Cat extends Animal {
 
     private final String catConstant = CAT_ACTION;
 
+    static {
+        System.out.println("Cat static block");
+    }
+
+    {
+        System.out.println("Cat logic block");
+    }
+
     public Cat() {
         System.out.println("In Cat default constructor");
     }
@@ -36,7 +44,7 @@ public class Cat extends Animal {
 
     public Cat(long id, String name, String type, double weight, String breed, String color, int age) {
         super(id, name, type, weight);
-        System.out.println("In Cat constructor with params with super 2");
+        System.out.println("In Cat constructor with params with super 4");
         this.breed = breed;
         this.color = color;
         this.age = age;
@@ -141,4 +149,12 @@ public class Cat extends Animal {
         return a + b;
     }
 
+    //Alt+Insert and choose override option
+
+    @Override
+    public int process(String number) {
+        return 20;
+    }
+
+    public void catMethod(){}
 }

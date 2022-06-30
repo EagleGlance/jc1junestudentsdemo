@@ -6,6 +6,14 @@ public class Animal extends BaseClass {
 
     private double weight;
 
+    static {
+        System.out.println("Animal static block");
+    }
+
+    {
+        System.out.println("Animal logic block");
+    }
+
     public Animal() {
        System.out.println("In Animal default constructor");
     }
@@ -68,5 +76,20 @@ public class Animal extends BaseClass {
                 "type='" + type + '\'' +
                 ", weight=" + weight +
                 "} ";
+    }
+
+    public void animalMethod(){}
+
+    public void doSomething() {
+        baseDoSomething();
+    }
+
+    @Override
+    public int process(String number) {
+        return 10;
+    }
+
+    public int baseMethod(String a, int b, String c) {
+        return 30;
     }
 }

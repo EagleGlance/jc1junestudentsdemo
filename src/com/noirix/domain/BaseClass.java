@@ -2,9 +2,17 @@ package com.noirix.domain;
 
 
 public class BaseClass {
-    private long id;
+    protected long id;
 
-    private String name;
+    protected String name;
+
+    static {
+        System.out.println("BaseClass static block");
+    }
+
+    {
+        System.out.println("BaseClass logic block");
+    }
 
     public BaseClass() {
         System.out.println("In BaseClass default constructor");
@@ -56,5 +64,21 @@ public class BaseClass {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void baseDoSomething(){
+        System.out.println("Base Do Something");
+    }
+
+    public int process(String number) {
+        return Integer.parseInt(number);
+    }
+
+    public int baseMethod() {
+        return 10;
+    }
+
+    public int baseMethod(String a, int b) {
+        return 20;
     }
 }
