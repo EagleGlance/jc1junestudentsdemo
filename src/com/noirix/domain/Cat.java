@@ -7,20 +7,20 @@ public class Cat {
     public static final String CAT_ACTION = "Meow";
     public static final String CAT_ACTION_WITH_SYMBOLS = "Meow!!";
 
-    public static int count = 0;
+    private static int count = 0;
 
     /*Поля класса = характеристики*/
-    public String name = "default name";
+    private String name = "default name";
 
-    public String breed = "default breed";
+    private String breed = "default breed";
 
-    public String color;
+    private String color;
 
     private int age;
 
     private double weight;
 
-    public final String catConstant;
+    private final String catConstant;
 
     static {
         count = 100;
@@ -57,6 +57,60 @@ public class Cat {
         this.color = color;
         this.age = age;
         this.weight = weight;
+    }
+
+    /*setters, getters*/
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Cat.count = count;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public String getCatConstant() {
+        return catConstant;
     }
 
     /*@Overriding*/

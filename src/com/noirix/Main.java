@@ -14,6 +14,20 @@ public class Main {
         System.out.println(cat);
         System.out.println(cat2);
 
+        System.out.println("*************Setters and getters demo**************");
+
+        System.out.println(Cat.getCount());
+        System.out.println(cat.getAge());
+        System.out.println(cat.getBreed());
+        System.out.println(cat.getName());
+
+        System.out.println(cat2.getName());
+
+        cat2.setName("Slavik");
+        Cat.setCount(100);
+        System.out.println(cat2.getName());
+        System.out.println(Cat.getCount());
+
         //collision = different objects + equals hashCodes
         System.out.println(cat.hashCode());
         System.out.println(cat2.hashCode());
