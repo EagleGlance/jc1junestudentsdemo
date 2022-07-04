@@ -4,6 +4,7 @@ import com.noirix.domain.Animal;
 import com.noirix.domain.BaseClass;
 import com.noirix.domain.Cat;
 import com.noirix.domain.Dog;
+import com.noirix.service.CatActionInterface;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +21,12 @@ public class Main {
         Cat cat = new Cat();
         Animal animal = new Animal();
         BaseClass base = new BaseClass();
+        CatActionInterface catActionInterface = new Cat();
+
+        catActionInterface.jump();
+        catActionInterface.run();
+        catActionInterface.eat();
+        catActionInterface.meow();
 
         //Overloading - раннее связывание - для комплилятора - тип ссылки важен
 //        cat.catMethod();

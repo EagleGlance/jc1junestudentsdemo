@@ -1,9 +1,8 @@
 package com.noirix.domain;
 
-public class Cat extends Animal {
+import com.noirix.service.CatActionInterface;
 
-    public static final String CAT_ACTION = "Meow";
-    public static final String CAT_ACTION_WITH_SYMBOLS = "Meow!!";
+public class Cat extends Animal implements CatActionInterface {
 
     private static int count = 0;
 
@@ -156,5 +155,26 @@ public class Cat extends Animal {
         return 20;
     }
 
-    public void catMethod(){}
+    public void catMethod() {
+    }
+
+    @Override
+    public void meow() {
+        System.out.println(CAT_ACTION);
+    }
+
+    @Override
+    public void run() {
+        System.out.println(CAT_ACTION_RUN);
+    }
+
+    @Override
+    public void jump() {
+        System.out.println("JUMP");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("EAT");
+    }
 }
