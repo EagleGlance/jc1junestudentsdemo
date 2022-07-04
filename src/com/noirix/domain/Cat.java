@@ -2,7 +2,7 @@ package com.noirix.domain;
 
 import com.noirix.service.CatActionInterface;
 
-public class Cat extends Animal implements CatActionInterface {
+public class Cat extends Animal implements CatActionInterface, Comparable<Cat> {
 
     private static int count = 0;
 
@@ -176,5 +176,10 @@ public class Cat extends Animal implements CatActionInterface {
     @Override
     public void eat() {
         System.out.println("EAT");
+    }
+
+    @Override
+    public int compareTo(Cat o) {
+        return this.getAge() - o.getAge();
     }
 }

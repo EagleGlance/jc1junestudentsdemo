@@ -6,6 +6,8 @@ import com.noirix.domain.Cat;
 import com.noirix.domain.Dog;
 import com.noirix.service.CatActionInterface;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 //        System.out.println(new Cat());
@@ -37,6 +39,25 @@ public class Main {
         System.out.println(cat.process("1000"));
         System.out.println(animal.process("1000"));
         System.out.println(base.process("1000"));
+
+        Cat[] cats = new Cat[3];
+
+        Cat cat1 = new Cat();
+        cat1.setAge(10);
+        Cat cat2 = new Cat();
+        cat2.setAge(20);
+        Cat cat3 = new Cat();
+        cat3.setAge(30);
+
+        cats[0] = cat3;
+        cats[1] = cat2;
+        cats[2] = cat1;
+
+        Arrays.sort(cats);
+
+        for (Cat tempCat : cats) {
+            System.out.println(tempCat);
+        }
 
     }
 }

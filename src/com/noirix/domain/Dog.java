@@ -1,6 +1,8 @@
 package com.noirix.domain;
 
-public class Dog extends Animal {
+import java.util.Comparator;
+
+public class Dog extends Animal implements Comparator<Dog> {
     private String dogSay = "Gav";
 
     public Dog() {
@@ -18,6 +20,23 @@ public class Dog extends Animal {
     public Dog(long id, String name, String type, double weight, String dogSay) {
         super(id, name, type, weight);
         this.dogSay = dogSay;
+    }
+
+    @Override
+    public int compare(Dog o1, Dog o2) {
+
+        double weight1 = o1.getWeight();
+        double weight2 = o2.getWeight();
+
+//        if (weight1 < weight2) {
+//            return -1;
+//        } else if (weight1 == weight2) {
+//            return 0;
+//        } else {
+//            return 1;
+//        }
+
+        return Double.compare(weight1, weight2);
     }
 
     @Override
