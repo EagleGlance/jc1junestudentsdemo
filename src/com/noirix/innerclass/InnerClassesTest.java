@@ -17,5 +17,12 @@ public class InnerClassesTest {
         inner.innerLogic();
 
         System.out.println(Outer.Inner.INNER_CONST);
+
+        StaticNestedClassTest.Nested.nestedLogic();
+
+
+        StaticNestedClassTest.Nested nested = new StaticNestedClassTest().nested;
+
+
     }
 }

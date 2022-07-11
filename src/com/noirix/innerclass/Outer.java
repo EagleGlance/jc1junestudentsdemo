@@ -3,6 +3,9 @@ package com.noirix.innerclass;
 import java.util.Comparator;
 
 public class Outer {
+    private static int count = 100;
+
+    public static int count1 = 100;
 
     private String outerStringValue;
 
@@ -30,6 +33,10 @@ public class Outer {
 
     public void setOuterLongValue(Long outerLongValue) {
         this.outerLongValue = outerLongValue;
+    }
+
+    public static void outerLogic() {
+        System.out.println("bla bla");
     }
 
     class Inner implements Comparator<Inner> {
@@ -104,7 +111,12 @@ public class Outer {
             System.out.println(getOuterStringValue());
             System.out.println(getOuterLongValue());
 
+            System.out.println(count);
+            System.out.println(count1);
+
             System.out.println("Inside inner method");
+
+            outerLogic();
         }
 
         @Override

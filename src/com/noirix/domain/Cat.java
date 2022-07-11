@@ -155,7 +155,73 @@ public class Cat extends Animal implements CatActionInterface, Comparable<Cat> {
         return 20;
     }
 
-    public void catMethod() {
+
+    /*brand:Volvo, model:XC90 */
+    public void catMethod(String someInfo) {
+
+        class Car {
+
+            public static final String BRAND = "brand";
+
+            public static final String MODEL = "model";
+
+            private String brand;
+
+            private String model;
+
+            public Car() {
+            }
+
+            public Car(String brand, String model) {
+                this.brand = brand;
+                this.model = model;
+            }
+
+            public String getBrand() {
+                return brand;
+            }
+
+            public void setBrand(String brand) {
+                this.brand = brand;
+            }
+
+            public String getModel() {
+                return model;
+            }
+
+            public void setModel(String model) {
+                this.model = model;
+            }
+
+            @Override
+            public String toString() {
+                return "Car{" +
+                        "brand='" + brand + '\'' +
+                        ", model='" + model + '\'' +
+                        '}';
+            }
+        }
+
+        String[] keyValues = someInfo.trim().split(", ");
+        Car car = new Car();
+        for (String keyValue : keyValues) {
+            String[] split = keyValue.split(":");
+
+            String value = split[1];
+
+            switch (split[0]) {
+                case Car.MODEL:
+                    car.setModel(value);
+                    break;
+                case Car.BRAND:
+                    car.setBrand(value);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        System.out.println(car);
     }
 
     @Override
