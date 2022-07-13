@@ -3,7 +3,7 @@ package com.noirix.domain;
 
 /*Type K - future type of key of object*/
 /*Type V - future type of value of object*/
-public class Template<K, V> {
+public class Template<K extends Number, V extends BaseClass> {
     K key;
     V value;
 

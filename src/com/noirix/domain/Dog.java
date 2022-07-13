@@ -5,6 +5,8 @@ import java.util.Comparator;
 public class Dog extends Animal implements Comparator<Dog> {
     private String dogSay = "Gav";
 
+    public Gender gender;
+
     public Dog() {
     }
 
