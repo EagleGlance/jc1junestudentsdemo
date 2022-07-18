@@ -11,10 +11,14 @@ import java.util.TreeSet;
 public class MapTests {
     public static void main(String[] args) {
 
+        long start = System.currentTimeMillis();
         Cat cat = new Cat();
         Cat cat1 = new Cat("breed1", "black", 5);
         Cat cat2 = new Cat("breed2", "white", 7);
         Cat cat3 = new Cat("breed3", "red", 8);
+        long finish = System.currentTimeMillis();
+
+        System.out.println(finish - start);
 
         Map<String, Cat> catsDictionary = new HashMap<>();
 
