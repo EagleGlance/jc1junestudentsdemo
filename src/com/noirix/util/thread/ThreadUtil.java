@@ -9,4 +9,20 @@ public class ThreadUtil {
         System.out.println(thread.getState());
         System.out.println(thread.getThreadGroup());
     }
+
+//    public synchronized String synchroMethod() {
+//        return "";
+//    }
+//
+//    private Object lock = new Object();
+//
+//    public String synchroMethod1() {
+//
+//        //critical section
+//        synchronized (lock) {
+//
+//        }
+//
+//        return "";
+//    }
 }
