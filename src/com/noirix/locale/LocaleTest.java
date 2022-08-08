@@ -1,5 +1,8 @@
 package com.noirix.locale;
 
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class LocaleTest {
@@ -12,16 +15,37 @@ public class LocaleTest {
         System.out.println(locale.getDisplayLanguage());
 
         Locale canada = Locale.CANADA;
-        Locale france = Locale.UK;
+        Locale uk = Locale.UK;
 
         System.out.println(canada.getLanguage());
         System.out.println(canada.getCountry());
         System.out.println(canada.getDisplayCountry());
         System.out.println(canada.getDisplayLanguage());
 
-        System.out.println(france.getLanguage());
-        System.out.println(france.getCountry());
-        System.out.println(france.getDisplayCountry());
-        System.out.println(france.getDisplayLanguage());
+        System.out.println(uk.getLanguage());
+        System.out.println(uk.getCountry());
+        System.out.println(uk.getDisplayCountry());
+        System.out.println(uk.getDisplayLanguage());
+
+        NumberFormat instance = NumberFormat.getCurrencyInstance(uk);
+        NumberFormat us = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        NumberFormat germany = NumberFormat.getCurrencyInstance(Locale.GERMANY);
+        NumberFormat china = NumberFormat.getCurrencyInstance(Locale.CHINA);
+
+        System.out.println(instance.format(100000));
+        System.out.println(us.format(100000));
+        System.out.println(germany.format(100000));
+        System.out.println(china.format(100000));
+
+        Date date = new Date();
+
+        DateFormat dateInstance = DateFormat.getDateInstance(DateFormat.LONG, uk);
+        DateFormat dateInstanceUs = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE);
+        DateFormat dateInstanceGermany = DateFormat.getDateInstance(DateFormat.LONG, Locale.GERMANY);
+        DateFormat dateInstanceChina = DateFormat.getDateInstance(DateFormat.LONG, Locale.CHINA);
+        System.out.println(dateInstance.format(date));
+        System.out.println(dateInstanceUs.format(date));
+        System.out.println(dateInstanceGermany.format(date));
+        System.out.println(dateInstanceChina.format(date));
     }
 }
