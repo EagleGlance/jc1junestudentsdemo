@@ -2,7 +2,11 @@ package com.noirix.domain;
 
 import com.noirix.service.CatActionInterface;
 
-public class Cat extends Animal implements CatActionInterface, Comparable<Cat> {
+import java.io.Serializable;
+
+public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, Serializable {
+
+    private static final long serialVersionUID = 2L;
 
     private static int count = 0;
 
