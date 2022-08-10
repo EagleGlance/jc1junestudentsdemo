@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class RegExpTest {
     public static void main(String[] args) {
         Pattern regexp = Pattern.compile("[a-z\\d]+");
-        Pattern email = Pattern.compile("([a-zA-Z0-9]+(?:[._+-][a-zA-Z0-9]+)*)@([a-zA-Z0-9]+(?:[.-][a-zA-Z0-9]+)*[.][a-zA-Z]{2,})");
+        Pattern email = Pattern.compile("(\\w+(?:[._+-]\\w+)*)@(\\w+(?:[.-]\\w+)*[.][a-zA-Z]{3,})");
 
         String someText = RandomStringUtils.randomAlphanumeric(100);
         String emailText = "viachaslauk.it@gmail.com";
