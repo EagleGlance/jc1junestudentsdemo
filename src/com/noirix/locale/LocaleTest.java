@@ -1,5 +1,7 @@
 package com.noirix.locale;
 
+import com.noirix.util.GreetingsReader;
+
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.Date;
@@ -47,5 +49,12 @@ public class LocaleTest {
         System.out.println(dateInstanceUs.format(date));
         System.out.println(dateInstanceGermany.format(date));
         System.out.println(dateInstanceChina.format(date));
+
+        System.out.println("Resource bundle test: ");
+        System.out.println(GreetingsReader.getProperty(Locale.UK, GreetingsReader.HELLO_KEY));
+        System.out.println(GreetingsReader.getProperty(Locale.FRANCE, GreetingsReader.HELLO_KEY));
+        System.out.println(GreetingsReader.getProperty(Locale.CANADA, GreetingsReader.HELLO_KEY));
+        System.out.println(GreetingsReader.getProperty(Locale.GERMANY, GreetingsReader.HELLO_KEY));
+        System.out.println(GreetingsReader.getProperty(new Locale("ru", "RU"), GreetingsReader.HELLO_KEY));
     }
 }
