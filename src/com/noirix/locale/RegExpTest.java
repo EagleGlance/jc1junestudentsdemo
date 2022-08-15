@@ -13,6 +13,8 @@ public class RegExpTest {
         String someText = RandomStringUtils.randomAlphanumeric(100);
         String emailText = "viachaslauk.it@gmail.com";
 
+        //String s = (String) new Object();
+
         System.out.println(someText);
 
         Matcher matcher = regexp.matcher(someText);

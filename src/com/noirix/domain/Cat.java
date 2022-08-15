@@ -1,9 +1,11 @@
 package com.noirix.domain;
 
+import com.noirix.reflection.CustomAnnotation;
 import com.noirix.service.CatActionInterface;
 
 import java.io.Serializable;
 
+@CustomAnnotation
 public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, Serializable {
 
     private static final long serialVersionUID = 2L;
@@ -12,6 +14,7 @@ public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, 
 
     private String breed = "default breed";
 
+    @CustomAnnotation
     private String color;
 
     private int age;
@@ -55,6 +58,7 @@ public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, 
 
     /*setters, getters*/
 
+    @CustomAnnotation
     public static int getCount() {
         return count;
     }
@@ -63,6 +67,7 @@ public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, 
         Cat.count = count;
     }
 
+    @CustomAnnotation
     public String getBreed() {
         return breed;
     }
