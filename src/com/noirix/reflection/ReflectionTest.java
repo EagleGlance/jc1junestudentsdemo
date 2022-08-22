@@ -22,44 +22,9 @@ public class ReflectionTest {
         printClassInfo(catClass);
         printClassInfo(catActionInterfaceClass);
 
+        printEnumInfo(Gender.class);
 
-        Class<Gender> genderClass = Gender.class;
-
-
-        System.out.println(genderClass.isEnum() ? "Enum" : "Not Enum");
-
-        if (genderClass.isEnum()) {
-            for (Gender enumConstant : genderClass.getEnumConstants()) {
-                System.out.println(enumConstant);
-            }
-        }
-
-
-        System.out.println("Fields");
-        Cat cat = new Cat("adsasdas", "black", 10);
-
-        System.out.println(cat);
-        Field[] fields = catClass.getDeclaredFields();
-
-        for (Field field : fields) {
-            System.out.println(field);
-
-            field.setAccessible(true);
-
-            for (Annotation annotation : field.getAnnotations()) {
-
-                if (annotation instanceof CustomAnnotation) {
-                    String s = (String) field.get(cat);
-
-                    if (s.contains("a")) {
-                        field.set(cat, "white");
-                    }
-                }
-
-                System.out.println(field.get(cat));
-            }
-        }
-        System.out.println(cat);
+        printFieldsClassInfo(catClass);
 
 
         System.out.println("Constructors");
@@ -85,6 +50,7 @@ public class ReflectionTest {
         System.out.println("Methods");
 
         Method[] declaredMethods = catClass.getDeclaredMethods();
+        Cat cat = new Cat("adsasdas", "black", 10);
 
         for (Method declaredMethod : declaredMethods) {
             System.out.println(declaredMethod);
@@ -111,6 +77,49 @@ public class ReflectionTest {
             ReflectionUtil.printClassInfo(declaredMethod.getExceptionTypes());
             ReflectionUtil.printAnnotationsInfo(declaredMethod.getAnnotations());
 
+        }
+    }
+
+    public static void printEnumInfo(Class<?> enumClass) {
+
+        System.out.println(enumClass.isEnum() ? "Enum" : "Not Enum");
+
+        if (enumClass.isEnum()) {
+            for (Object enumConstant : enumClass.getEnumConstants()) {
+                System.out.println(enumConstant);
+            }
+        }
+    }
+
+    public static void printFieldsClassInfo(Class<?> catClass) throws IllegalAccessException {
+        System.out.println("Fields");
+        Cat cat = new Cat("adsasdas", "black", 10);
+
+        System.out.println(cat);
+        Field[] fields = catClass.getDeclaredFields();
+
+        for (Field field : fields) {
+            System.out.println(field);
+
+            field.setAccessible(true);
+
+            for (Annotation annotation : field.getAnnotations()) {
+
+                changeFieldValueByAnnotation(annotation, field, cat);
+
+                System.out.println(field.get(cat));
+            }
+        }
+        System.out.println(cat);
+    }
+
+    private static void changeFieldValueByAnnotation(Annotation annotationClass, Field field, Object objectForChanges) throws IllegalAccessException {
+        if (annotationClass instanceof CustomAnnotation) {
+            String s = (String) field.get(objectForChanges);
+
+            if (s.contains("a")) {
+                field.set(objectForChanges, "white");
+            }
         }
     }
 }

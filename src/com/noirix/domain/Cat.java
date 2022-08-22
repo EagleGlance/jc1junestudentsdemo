@@ -239,9 +239,15 @@ public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, 
     }
 
     @Override
-    public void run() {
+    public void run() throws RuntimeException {
         System.out.println(CAT_ACTION_RUN);
+
+        ((Animal)new Cat()).animalMethod();
+
+        System.out.println("u000a");
     }
+
+
 
     @Override
     public void jump() {
