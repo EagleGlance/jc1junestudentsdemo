@@ -1,5 +1,7 @@
 package com.noirix.dateapi;
 
+import org.apache.log4j.Logger;
+
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,9 +17,12 @@ import java.util.Set;
 public class DateTimeTest {
     private static final String DATE_FORMAT = "dd-M-yyyy hh:mm:ss a";
 
+    private static final Logger log = Logger.getLogger(DateTimeTest.class);
+
     public static void main(String[] args) {
         Date date = new Date();
-        System.out.println(date);
+        log.info("We are testing DateTime API");
+        log.info(date);
         //2022-08-22
 
         Timestamp timestamp = new Timestamp(new Date().getTime());
