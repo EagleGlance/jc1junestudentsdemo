@@ -1,19 +1,24 @@
 package com.noirix.exception;
 
 import com.noirix.domain.User;
+import org.apache.log4j.Logger;
 
 import java.io.FileInputStream;
+import java.util.UUID;
 
 public class ExceptionTest {
+
+    private static final Logger log = Logger.getLogger(ExceptionTest.class);
+
     public static void main(String[] args) {
 
+        String uuid = UUID.randomUUID().toString();
+
         /*try with resources automatically close object and invoke close method on it*/
-        try (FileInputStream fileInputStream = new FileInputStream("file.txt")) {
+        try {
             /*Потенциальная аварийная ситуация, опасный код,
             выполнение которого может вызвать ошибку и остановку приложения*/
-            System.out.println("We are in try section");
-
-            int read = fileInputStream.read();
+            log.info("We are in try section");
 
             try {
                 try {
@@ -21,6 +26,7 @@ public class ExceptionTest {
                         try {
                             throw new RuntimeException();
                         } catch (Exception e) {
+                            log.debug("asdfdsfsdfs");
                             throw new RuntimeException();
                         }
                     } catch (Exception e) {
@@ -30,6 +36,7 @@ public class ExceptionTest {
                     throw new RuntimeException();
                 }
             } catch (Exception e) {
+                log.error("Exception id " + uuid, e);
             }
 
             User user = new User();
@@ -37,26 +44,24 @@ public class ExceptionTest {
 
             //throw new Throwable();
         } catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {
-
-            System.out.println("we are catching some specific exceptions");
+            log.error("Exception id " + uuid, e);
 
         } catch (RuntimeException e) {
 
-            System.out.println("Runtime exception handling");
+            log.error("Exception id " + uuid, e);
 
         } catch (Exception e) {
 
-            System.out.println("Exception handling");
+            log.error("Exception id " + uuid, e);
 
         } catch (Throwable e) {
             //e.printStackTrace();
             /*Обработка аварийной ситуации*/
-            System.out.println("We catch Throwable");
-            System.out.println(e.getMessage());
+            log.error("Exception id " + uuid, e);
 
         } finally {
             /*Секция кода, которая выполнится независимо от того, произошла аварийная ситуация или же нет*/
-            System.out.println("We are in finally block");
+            log.info("We are in finally block " + ExceptionTest.class);
             throw new RuntimeException();
         }
 
