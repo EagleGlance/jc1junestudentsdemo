@@ -5,6 +5,21 @@ import com.noirix.util.CatUtil;
 
 public class CatSearchExceptionTest {
     public static void main(String[] args) {
+
+//        Integer a = 128;
+//        Integer b = 128;
+//        Integer c = -128;
+//        Integer d = -128;
+//
+//        System.out.println(a == b);
+//        System.out.println(c == d);
+
+        byte b = 0;
+
+        while (++b > 0);
+
+        System.out.println(b);
+
         Cat cat = new Cat("breed", "black", 5);
         Cat cat1 = new Cat("breed1", "white", 4);
         Cat cat2 = new Cat("breed2", "red", 10);

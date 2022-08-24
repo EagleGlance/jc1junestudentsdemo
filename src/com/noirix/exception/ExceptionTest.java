@@ -10,9 +10,20 @@ public class ExceptionTest {
 
     private static final Logger log = Logger.getLogger(ExceptionTest.class);
 
-    public static void main(String[] args) {
+    public static strictfp void main(String[] args) {
 
         String uuid = UUID.randomUUID().toString();
+        System.out.println('\u0000');
+        System.out.println("\u0000");
+        System.out.println("\u00ff");
+        System.out.println("\\u0000");
+        System.out.println("//u0000");
+        System.out.println("/u0000");
+
+        //0-7 - восьмеричная
+        //0-1 - двоичная
+        //0-9a-f - шестнадцатиричная
+
 
         /*try with resources automatically close object and invoke close method on it*/
         try {

@@ -6,6 +6,12 @@ public class Animal extends BaseClass {
 
     private double weight;
 
+    private int x;
+
+    public int getX() {
+        return x;
+    }
+
     static {
         System.out.println("Animal static block");
     }
@@ -80,7 +86,7 @@ public class Animal extends BaseClass {
 
     public void animalMethod(){}
 
-    public void doSomething() {
+    private void doSomething() {
         baseDoSomething();
     }
 

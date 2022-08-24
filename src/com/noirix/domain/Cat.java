@@ -164,8 +164,10 @@ public class Cat extends Animal implements CatActionInterface, Comparable<Cat>, 
         return 20;
     }
 
+    public void doSomething() {
+    }
 
-    /*brand:Volvo, model:XC90 */
+        /*brand:Volvo, model:XC90 */
     public void catMethod(String someInfo) {
 
         class Car {
